@@ -1,0 +1,18 @@
+---
+title: "Weight Lifting Predictions"
+author: "Jacob Townson"
+date: "August 4, 2015"
+output: html_document
+---
+
+
+
+```{r}
+if(exists('train') == FALSE){
+  train <- read.csv('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv')
+}
+if(exists('test') == FALSE){
+test <- read.csv('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv')
+}
+```
+
