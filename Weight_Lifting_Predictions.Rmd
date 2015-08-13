@@ -16,3 +16,14 @@ test <- read.csv('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testin
 }
 ```
 
+
+```{r}
+
+```
+
+
+
+
+
+
+
