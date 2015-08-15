@@ -5,7 +5,9 @@ date: "August 4, 2015"
 output: html_document
 ---
 
+# Overview
 
+In this project, I will analyze data taken on the movements of test subjects as they do certain activities. I will use machine learning methods (specifically random forrests) to analyze a large set of data, then use the model created from this to predict the activity that the test subjects were doing in a smaller set of data. Before we begin, we must first read in the data.
 
 ```{r}
 if(exists('train') == FALSE){
@@ -16,12 +18,23 @@ test <- read.csv('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testin
 }
 ```
 
+# Cleaning the Data
+
+Before making the model, it is important to clean out any unnecessary measurements in the dataset so that the model won't get a false prediction based off of facts that don't matter. In this case, we can assume that time does not affect a persons movements, and also that the "window of time" doesn't matter either. So we must take this out of both the test and train data sets.
 
 ```{r}
-
+goodNames <- sapply(test, function(x)!all(is.na(x)))
+df <- train[,goodNames]
+namesdf <- names(df)
+wanted <- namesdf[-c(1,3,4,5,6,7)]
+df <- df[,wanted]
+lastTest <- test[,goodNames]
+namesdf <- names(lastTest)
+wanted <- namesdf[-c(1,3,4,5,6,7)]
+lastTest <- lastTest[,wanted]
 ```
 
-
+Now that our data sets are cleaned up, we may proceed to the rest of the project
 
 
 
